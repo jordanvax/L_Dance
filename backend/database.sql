@@ -33,3 +33,20 @@ CREATE TABLE `cours` (
   Foreign Key (sections_id) REFERENCES sections(id),
   Foreign Key (id_jours) REFERENCES jours(id)
 );
+
+CREATE TABLE `evenements`(
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  name varchar (100),
+  lieu varchar (200),
+  description varchar (1000),
+  horaire_debut datetime,
+  horaire_fin datetime,
+  id_Professeur int,
+  photo varchar (150),
+  desc_photo varchar (500),
+  Foreign Key (id_Professeur) REFERENCES professeur(id)
+);
+
+INSERT INTO professeur (id, nom, style) VALUES (1, "Vaxelaire amelie", "Modern-Jazz");
+INSERT INTO professeur (id, nom, style) VALUES (2, "Jacquot Pierre", "Break-dance");
+INSERT INTO evenements (id, name, lieu, description, horaire_debut, horaire_fin, id_Professeur, photo, desc_photo) VALUES (1,'Saint Nicolas', 'Saint dié des vosges', "Le saint patron des Lorrains défilera dans les rues de la ville pour le plus grand plaisir des enfants.",'2023-12-03 17:30:00', '2023-12-03 19:30:00', 1, "https://i0.wp.com/saintdieinfo.fr/wp-content/uploads/2021/12/D%C3%A9fil%C3%A9_Saint-Nicolas-1.jpg?resize=636%2C479&ssl=1", "Photo du char des ldance lors de la parade");

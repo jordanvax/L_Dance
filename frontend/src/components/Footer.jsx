@@ -6,7 +6,6 @@ import InputTemplate from "@components/InputTemplate";
 import TextareaTemplate from "@components/TextareaTemplate";
 import ButtonTemplate from "@components/ButtonTemplate";
 
-import { SiLinkedin } from "react-icons/si";
 import "react-toastify/dist/ReactToastify.css";
 
 function Footer() {
@@ -59,22 +58,7 @@ function Footer() {
         pauseOnHover
         theme="dark"
       />
-      <div className="flex flex-col items-center bg-gray-900">
-        <div className="flex justify-center pt-5">
-          <ul className="flex flex-row">
-            <a
-              href="https://www.linkedin.com/company/origins-digital-emg/"
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                color: "#2366c2",
-                fontSize: "30px",
-              }}
-            >
-              <SiLinkedin />
-            </a>
-          </ul>
-        </div>
+      <div className="flex flex-col items-center bg-[#292929]">
         <form className="flex flex-col items-center mt-5 gap-5 w-full lg:w-10/12">
           <div className="flex w-3/4 gap-5">
             <InputTemplate
@@ -109,17 +93,6 @@ function Footer() {
             methodOnClick={submitForm}
           />
         </form>
-        <div className="text-white text-center m-5">
-          <h1>Services</h1>
-          <div className="flex justify-center">
-            <hr className="w-60" />
-          </div>
-          <ul>
-            <li>Legal notice</li>
-            <li>Cookies</li>
-            <li>CGV</li>
-          </ul>
-        </div>
         <hr />
         <p className="text-white text-center p-2">© All right Reserved.</p>
       </div>

@@ -9,7 +9,7 @@ export default function Nav() {
         <div className="flex flex-col">
           <div className="flex flex-col space-y-5">
             <Link
-              to="Evenement"
+              to="Evenements"
               className={`flex ${
                 location.pathname.endsWith("Dashboard/Evenement")
                   ? "text-secondary"
@@ -22,7 +22,7 @@ export default function Nav() {
               to="/"
               className="flex hover:text-secondary focus:text-secondary text-white px-3 py-2  w-full"
             >
-              <p className="text-base leading-4 ml-3">Acceuil</p>
+              <p className="text-base leading-4 ml-3">Accueil</p>
             </Link>
           </div>
         </div>

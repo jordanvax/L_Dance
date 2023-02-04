@@ -2,6 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  /* largeur maximale des inputs sur le backOffice */
+  .cstm_width_XlInput {
+    @apply w-3/4 lg:w-7/12;
+  }
+  /* style des inputs sur le backOffice */
+  .cstm_styleInput {
+    @apply border-solid border-primary border-2 rounded-md p-3;
+  }
+  /* style des boutons bleus sur le backOffice */
+  .cstm_buttonPrimary {
+    @apply bg-primary text-white text-base rounded-md p-2 hover:bg-secondary hover:text-primary;
+  }
+  /* style des boutons orange sur le backOffice */
+  .cstm_buttonSecondary {
+    @apply bg-secondary border-solid border-secondary border-2 text-primary text-base rounded-md p-2 w-32 hover:bg-primary hover:text-white hover:border-primary;
+  }
+  /* style des boutons transparents & bords orange sur le backOffice */
+  .cstm_buttonSecondaryNone {
+    @apply border-solid border-secondary border-2 text-secondary text-base rounded-md p-2 w-32 hover:bg-secondary hover:text-white;
+  }
+  /* style des boutons orange sur le site */
+  .cstm_cstmrButton {
+    @apply bg-secondary border-solid border-secondary border-2 text-primary text-base rounded-md p-2 w-32 hover:text-secondary hover:border-secondary hover:bg-transparent;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",

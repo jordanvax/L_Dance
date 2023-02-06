@@ -40,35 +40,21 @@ export default function Nav() {
             }`}
           />
         </button>
-        {isMenuDisplayed && (
-          <div className="flex justify-center py-5 bg-secondary z-10 mt-72 rounded-xl">
-            <div className="flex flex-col items-center text-xl p-6">
-              <button
-                type="button"
-                onClick={() => navToPages("/Cours")}
-                className="text-white hover:scale-105 hover:font-bold text-2xl mb-5"
-              >
-                Cours
-              </button>
-              <button
-                type="button"
-                onClick={() => navToPages("/Evenements-à-venir")}
-                className="text-white hover:scale-105 hover:font-bold text-2xl mb-5"
-              >
-                Evenement
-              </button>
-              <button
-                type="button"
-                onClick={() => navToPages("/Dashboard/Evenements")}
-                className="text-white hover:scale-105 hover:font-bold text-2xl mb-5"
-              >
-                Evenements
-              </button>
-            </div>
-          </div>
-        )}
         <h1 className="text-secondary font-bold">Dashboard</h1>
       </div>
+      {isMenuDisplayed && (
+        <div className="flex absolute w-5/12 lg:w-2/12 bg-secondary z-10 rounded-xl">
+          <div className="flex flex-col items-center text-xl p-6">
+            <button
+              type="button"
+              onClick={() => navToPages("/")}
+              className="text-white hover:scale-105 hover:font-bold text-2xl mb-5"
+            >
+              Home
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -94,7 +94,9 @@ function Footer() {
           />
         </form>
         <hr />
-        <p className="text-white text-center p-2">© All right Reserved.</p>
+        <p className="text-white text-center p-2">
+          Copyright Vaxelaire Jordan 2023
+        </p>
       </div>
     </>
   );

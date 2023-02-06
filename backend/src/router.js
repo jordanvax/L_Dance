@@ -30,5 +30,8 @@ router.delete("/evenements/:id", evenementControllers.destroy);
 
 router.get("/professeurs", professeurControllers.browse);
 router.get("/professeurs/:id", professeurControllers.read);
+router.put("/professeurs/:id", professeurControllers.edit);
+router.post("/professeurs", professeurControllers.add);
+router.delete("/professeurs/:id", professeurControllers.destroy);
 
 module.exports = router;

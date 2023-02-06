@@ -7,8 +7,8 @@ class ProfesseursManager extends AbstractManager {
 
   insert(professeurs) {
     return this.connection.query(
-      `insert into ${this.table} (title) values (?)`,
-      [professeurs.title]
+      `insert into ${this.table} (name, style) values (?,?)`,
+      [professeurs.name, professeurs.style]
     );
   }
 

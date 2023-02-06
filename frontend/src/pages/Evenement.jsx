@@ -1,35 +1,37 @@
-import React, { useEffect, useState } from "react";
-import apiConnection from "@services/apiConnection";
-
 export default function Evenement() {
-  const [evenements, setEvenements] = useState();
-
-  useEffect(() => {
-    apiConnection
-      .get(`/evenements`)
-      .then((evenementdata) => {
-        setEvenements(evenementdata.data);
-      })
-      .catch((error) => console.error(error));
-  }, []);
-
   return (
-    <div>
-      <h1 className="text-center font-bold text-3xl pt-8 pb-4">
-        Evenements a venir :
-      </h1>
-      <div className="px-2 w-full flex justify-center ">
-        <div className="grid md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1">
-          {evenements?.map((evenement) => (
-            <div>
-              <div>{evenement.name}</div>
-              <img src={evenement.photo} alt={evenement.desc_photo} />
-              <div>{evenement.lieu}</div>
-              <div>{evenement.description}</div>
-              <div>{evenement.horaire_debut}</div>
-            </div>
-          ))}
-        </div>
+    <div className="m-6">
+      <div className="mb-8">
+        <h1 className="text-xl text-secondary">
+          LES FRAIS D'INSCRIPTIONS ANNUELS OBLIGATOIRES
+        </h1>
+        <p>30 euros pour toutes les disciplines.</p>
+      </div>
+      <div className="mb-8">
+        <h1 className="text-xl text-secondary">
+          LES COTISATIONS DE MODERNE JAZZ
+        </h1>
+        <p>Groupes enfants/Ados : 260 € à l'année.</p>
+        <p>Groupes adultes : 280 € à l'année.</p>
+      </div>
+      <div className="mb-8">
+        <h1 className="text-xl text-secondary">
+          LES COTISATIONS DE HIP-HOP/ BREAKDANCE / STREET DANCE
+        </h1>
+        <p>Groupes enfants : 230 € à l'année.</p>
+        <p>Groupes adultes : 230 € à l'année.</p>
+      </div>
+      <div className="mb-8">
+        <h1 className="text-xl text-secondary">
+          LES COTISATIONS DE DANSE FITNESS OU ZUMBA
+        </h1>
+        <p>Enfants et adultes : 200€ à l'année.</p>
+      </div>
+      <div className="mb-8">
+        <h1 className="text-secondary">
+          !!! Les danseurs/danseuses souhaitant faire du Hip-Hop ET du Modern
+          Jazz, la cotisation supplémentaire est réduite à 100€ l'année !!!
+        </h1>
       </div>
     </div>
   );

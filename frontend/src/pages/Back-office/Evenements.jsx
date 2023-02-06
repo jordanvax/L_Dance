@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import moment from "moment";
 
 import apiConnection from "@services/apiConnection";
 import SearchBarTemplate from "@components/SearchBarTemplate";
@@ -20,8 +21,8 @@ export default function DashboardEvenement() {
     name: "",
     lieu: "",
     description: "",
-    horaire_debut: null,
-    horaire_fin: null,
+    horaire_debut: new Date().toISOString().slice(0, 16),
+    horaire_fin: new Date().toISOString().slice(0, 16),
     id_Professeurs: null,
     photo: "",
     desc_photo: "",
@@ -63,17 +64,6 @@ export default function DashboardEvenement() {
     setEvenements(newEvenements);
   };
 
-  // Fonction qui gère le changement d'état des inputs
-  /**
-   * @param {number} place
-   * @param {number} value
-   */
-  const handleInputOnChangeHoraire = (place, value) => {
-    const newEvenements = { ...evenements };
-    newEvenements[place] = value;
-    setEvenements(newEvenements);
-  };
-
   // La fonction pre-rempli les input quand on clique sur un proffesseur dans la searchBar
   /**
    * @param {object} eve
@@ -93,8 +83,8 @@ export default function DashboardEvenement() {
       name: "",
       lieu: "",
       description: "",
-      horaire_debut: "",
-      horaire_fin: "",
+      horaire_debut: null,
+      horaire_fin: null,
       id_Professeur: null,
       photo: "",
       desc_photo: "",
@@ -110,11 +100,22 @@ export default function DashboardEvenement() {
   // Fonction qui gère l'ajout d'un nouvel evenements
   const handleAddEvenements = () => {
     delete evenements.id;
-    const { status, errorMessage } = validateEvenements(evenements);
+    const horaireDebut = moment(evenements.horaire_debut).format(
+      "YYYY-MM-DD HH:mm:ss"
+    );
+    const horaireFin = moment(evenements.horaire_fin).format(
+      "YYYY-MM-DD HH:mm:ss"
+    );
+    const newEvenements = {
+      ...evenements,
+      horaire_debut: horaireDebut,
+      horaire_fin: horaireFin,
+    };
+    const { status, errorMessage } = validateEvenements(newEvenements);
     if (status) {
       apiConnection
         .post(`/evenements`, {
-          ...evenements,
+          ...newEvenements,
         })
         .then((evenement) => {
           setEvenements(evenement.data);
@@ -217,7 +218,7 @@ export default function DashboardEvenement() {
         {/* FORM ADD OPTION */}
         <div className="mt-10 flex flex-col items-center w-full gap-y-7">
           <InputTemplate
-            textPlaceholder="Name"
+            textPlaceholder="Nom De L'événement"
             customWidth="cstm_width_XlInput"
             value={evenements.name}
             methodOnChange={handleInputOnChange}
@@ -231,14 +232,14 @@ export default function DashboardEvenement() {
             name="lieu"
           />
           <TextareaTemplate
-            textPlaceholder="Description"
+            textPlaceholder="Description De L'événement"
             customWidth="cstm_width_XlInput"
             value={evenements.description}
             methodOnChange={handleInputOnChange}
             name="description"
           />
           <InputTemplate
-            textPlaceholder="Photo"
+            textPlaceholder="Photo D'illustration De L'événement"
             customWidth="cstm_width_XlInput"
             value={evenements.photo}
             methodOnChange={handleInputOnChange}
@@ -255,16 +256,18 @@ export default function DashboardEvenement() {
             inputType="datetime-local"
             textPlaceholder="Heure de Début"
             customWidth="cstm_width_XlInput"
-            value={evenements.horaire_debut}
-            methodOnChange={handleInputOnChangeHoraire}
+            value={new Date(evenements.horaire_debut)
+              .toISOString()
+              .slice(0, 16)}
+            methodOnChange={handleInputOnChange}
             name="horaire_debut"
           />
           <InputTemplate
             inputType="datetime-local"
             textPlaceholder="Heure de Fin"
             customWidth="cstm_width_XlInput"
-            value={evenements.horaire_fin}
-            methodOnChange={handleInputOnChangeHoraire}
+            value={new Date(evenements.horaire_fin).toISOString().slice(0, 16)}
+            methodOnChange={handleInputOnChange}
             name="horaire_fin"
           />
           <SearchBarTemplate
@@ -274,7 +277,7 @@ export default function DashboardEvenement() {
             textPlaceholder="Liste Professeurs"
             textButton="Liste Professeurs"
             methodOnClick={handleProfesseurEvenements}
-            preSelectedValue={evenements.id_Professeur}
+            preSelectedValue={evenements.id_Professeurs}
           />
           <div className="flex justify-around space-x-8 pt-5">
             {!evenements.id && (

@@ -52,6 +52,13 @@ export default function Nav() {
             >
               Home
             </button>
+            <button
+              type="button"
+              onClick={() => navToPages("Professeurs")}
+              className="text-white hover:scale-105 hover:font-bold text-2xl mb-5"
+            >
+              Professeurs
+            </button>
           </div>
         </div>
       )}

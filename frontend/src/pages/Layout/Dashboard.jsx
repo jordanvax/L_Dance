@@ -3,7 +3,7 @@ import Nav from "../../components/Nav";
 
 function Dashboard() {
   return (
-    <div className="flex">
+    <div className="flex flex-col">
       <Nav />
       <Outlet />
     </div>

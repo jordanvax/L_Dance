@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import logoOrigins from "@assets/logo-origins.png";
+import logoLDance from "@assets/Logo_LDance.svg";
 import SearchBarLoupe from "./SearchBarLoupe";
 
 function NavCustmr() {
   const [isMenuDisplayed, setIsMenuDisplayed] = useState(false);
-  const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-white transition ease transform duration-300`;
+  const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-secondary transition ease transform duration-300`;
   const navigate = useNavigate();
   const navToPages = (link) => {
     setIsMenuDisplayed(false);
@@ -15,12 +15,13 @@ function NavCustmr() {
 
   return (
     // Si on est dirigé vers le dashboard, la nav disparraît
-    <nav className="flex flex-col z-[2] text-white p-4 w-full bg-primary md:bg-primary/0 md:bg-gradient-to-b md:from-primary md:h-35">
+    <nav className="flex flex-col text-white fixed lg:px-0 top-0 w-full bg-white md:bg-primary/0 md:bg-gradient-to-b md:from-primary md:h-35 lg:w-full">
       {/* Version Mobile */}
-      <ul className="md:hidden flex justify-between">
+      <ul className="md:hidden flex justify-between border-b-4 border-secondary bg-white">
         <button
           onClick={() => setIsMenuDisplayed(!isMenuDisplayed)}
           type="button"
+          className="ml-6"
         >
           <div
             className={`${genericHamburgerLine} ${
@@ -45,7 +46,7 @@ function NavCustmr() {
           />
         </button>
         <Link className="flex items-center" to="/">
-          <img className="w-28" src={logoOrigins} alt="logo origins" />
+          <img className="w-20" src={logoLDance} alt="logo origins" />
         </Link>
         <SearchBarLoupe />
       </ul>
@@ -55,21 +56,21 @@ function NavCustmr() {
             <button
               type="button"
               onClick={() => navToPages("/Cours")}
-              className="hover:text-secondary hover:font-bold text-2xl mb-5"
+              className="text-secondary hover:scale-105 hover:font-bold text-2xl mb-5"
             >
               Cours
             </button>
             <button
               type="button"
-              onClick={() => navToPages("/Evenement")}
-              className="hover:text-secondary hover:font-bold text-2xl mb-5"
+              onClick={() => navToPages("/Evenements-à-venir")}
+              className="text-secondary hover:scale-105 hover:font-bold text-2xl mb-5"
             >
               Evenement
             </button>
             <button
               type="button"
               onClick={() => navToPages("/Dashboard/Evenements")}
-              className="hover:text-secondary hover:font-bold text-2xl mb-5"
+              className="text-secondary hover:scale-105 hover:font-bold text-2xl mb-5"
             >
               Evenements
             </button>
@@ -77,15 +78,28 @@ function NavCustmr() {
         </div>
       )}
       {/* Version Desktop */}
-      <ul className="hidden md:flex justify-between row-span-full m-2">
-        <Link to="/">
-          <img className="w-40" src={logoOrigins} alt="logo origins" />
-        </Link>
-        <div className="flex justify-end gap-4 items-center text-2xl">
-          <Link to="/Cours">Cours</Link>
-          <Link to="/Evenement">Evenement</Link>
-          <Link to="Dashboard/Evenements">Dashboard</Link>
-          <SearchBarLoupe />
+      <ul className="hidden md:flex justify-center fixed text-secondary z-10 absolute bg-white border-b-4 border-secondary lg:w-full">
+        <div className="flex justify-between gap-4 items-center text-2xl">
+          <div>
+            <Link className="flex items-center mr-60 pr-60" to="/">
+              <img className="w-28" src={logoLDance} alt="logo origins" />
+            </Link>
+          </div>
+          <div className="flex flex-row justify-around flex-ml-96">
+            <Link to="/Cours" className="mx-8">
+              Cours
+            </Link>
+            <Link to="/Evenements-à-venir" className="mx-8">
+              Evenements-à-venir
+            </Link>
+            <Link to="/Evenement" className="mx-8">
+              Evenement
+            </Link>
+            <Link to="Dashboard/Evenements" className="mx-8">
+              Dashboard
+            </Link>
+            <SearchBarLoupe />
+          </div>
         </div>
       </ul>
     </nav>

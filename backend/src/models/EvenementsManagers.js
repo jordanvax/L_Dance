@@ -7,14 +7,14 @@ class EvenementsManager extends AbstractManager {
 
   insert(evenements) {
     return this.connection.query(
-      `insert into ${this.table} (name, lieu, description, horaire_debut, horaire_fin, id_Professeur, photo, desc_photo) values (?,?,?,?,?,?,?,?)`,
+      `insert into ${this.table} (name, lieu, description, horaire_debut, horaire_fin, id_Professeurs, photo, desc_photo) values (?,?,?,?,?,?,?,?)`,
       [
         evenements.name,
         evenements.lieu,
         evenements.description,
         evenements.horaire_debut,
         evenements.horaire_fin,
-        evenements.id_Professeur,
+        evenements.id_Professeurs,
         evenements.photo,
         evenements.desc_photo,
       ]

@@ -44,7 +44,7 @@ function SearchBar({
       const selectedObj = data.find(
         (el) => el.id === parseInt(preSelectedValue, 10)
       );
-      setSearchData(selectedObj.Name);
+      setSearchData(selectedObj.name);
     } else {
       setSearchData("");
     }

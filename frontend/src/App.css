@@ -9,7 +9,7 @@
   }
   /* style des inputs sur le backOffice */
   .cstm_styleInput {
-    @apply border-solid border-primary border-2 rounded-md p-3;
+    @apply border-solid border-primary border-[1.5px] rounded-md p-3;
   }
   /* style des boutons bleus sur le backOffice */
   .cstm_buttonPrimary {
@@ -84,4 +84,16 @@ code {
 
 button {
   font-size: calc(10px + 2vmin);
+}
+
+h1,
+h2,
+h3,
+nav,
+li {
+  font-family: "Abel", sans-serif;
+}
+
+body {
+  font-family: "Abel", sans-serif;
 }

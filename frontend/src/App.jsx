@@ -9,6 +9,7 @@ import Cours from "@pages/Cours";
 
 import Dashboard from "@pages/Layout/Dashboard";
 import DashboardEvenement from "@pages/Back-office/Evenements";
+import DashboardProfesseurs from "@pages/Back-office/Professeur";
 
 import "./App.css";
 
@@ -25,6 +26,7 @@ function App() {
           </Route>
           <Route path="/Dashboard" element={<Dashboard />}>
             <Route path="Evenements" element={<DashboardEvenement />} />
+            <Route path="Professeurs" element={<DashboardProfesseurs />} />
           </Route>
         </Routes>
       </div>

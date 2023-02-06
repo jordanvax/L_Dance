@@ -65,14 +65,7 @@ function NavCustmr() {
               onClick={() => navToPages("/Evenements-à-venir")}
               className="text-secondary hover:scale-105 hover:font-bold text-2xl mb-5"
             >
-              Evenement
-            </button>
-            <button
-              type="button"
-              onClick={() => navToPages("/Dashboard/Evenements")}
-              className="text-secondary hover:scale-105 hover:font-bold text-2xl mb-5"
-            >
-              Evenements
+              Evenements-à-venir
             </button>
           </div>
         </div>
@@ -91,9 +84,6 @@ function NavCustmr() {
             </Link>
             <Link to="/Evenements-à-venir" className="mx-8">
               Evenements-à-venir
-            </Link>
-            <Link to="/Evenement" className="mx-8">
-              Evenement
             </Link>
             <Link to="Dashboard/Evenements" className="mx-8">
               Dashboard

@@ -84,6 +84,7 @@ export default function Evenement() {
 
   // Fonction qui gère la modification d'un professeur
   const handleUpdateProfesseurs = () => {
+    const { name, style } = professeurs;
     apiConnection
       .put(`/professeurs/${professeurs.id}`, {
         name,

@@ -5,8 +5,11 @@ const router = express.Router();
 const itemControllers = require("./controllers/itemControllers");
 const evenementControllers = require("./controllers/evenementsControllers");
 const professeurControllers = require("./controllers/professeursController");
+const sendMailControllers = require("./controllers/sendMailControllers");
 
 const validators = require("./services/validators");
+
+router.post("/sendEmail", sendMailControllers.sendMail);
 
 router.get("/items", itemControllers.browse);
 router.get("/items/:id", itemControllers.read);

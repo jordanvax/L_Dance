@@ -13,10 +13,10 @@ class ProfesseursManager extends AbstractManager {
   }
 
   update(professeurs) {
-    return this.connection.query(
-      `update ${this.table} set title = ? where id = ?`,
-      [professeurs.title, professeurs.id]
-    );
+    return this.connection.query(`update ${this.table} set ? where id = ?`, [
+      professeurs,
+      professeurs.id,
+    ]);
   }
 }
 
